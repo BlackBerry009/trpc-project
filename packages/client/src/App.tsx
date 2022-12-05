@@ -6,7 +6,11 @@ import { trpc } from "./trpc";
 
 function AppContent() {
   const hello = trpc.sayHello.useQuery();
-  return <main className="p-2">{JSON.stringify(hello.data, null, 2)}</main>;
+  return (
+    <div className="flex justify-center">
+      <main className="text-center">{JSON.stringify(hello.data, null, 2)}</main>
+    </div>
+  );
 }
 
 function App() {
@@ -47,6 +51,5 @@ function App() {
     </trpc.Provider>
   );
 }
-
 
 export default App;
