@@ -15,5 +15,8 @@
   "devDependencies": {
     "concurrently": "^7.6.0",
     "wsrun": "^5.2.4"
+  },
+  "dependencies": {
+    "@tanstack/react-query-devtools": "^4.19.1"
   }
 }

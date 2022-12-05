@@ -3,23 +3,25 @@ import cors from "cors";
 import { initTRPC } from "@trpc/server";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import { Context, createContext } from "./context";
+import morgan from "morgan";
 
 const app = express();
 
 const t = initTRPC.context<Context>().create();
 const appRouter = t.router({
-  sayHello: t.procedure.query(() => {
-    return {
-      message: "hello",
-    };
-  }),
+  sayHello: t.procedure.query(() => "hello world lyg"),
 });
 export type AppRouter = typeof appRouter;
 
-app.use(cors);
-
 app.use(
-  "/api/trpc",
+  cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+  })
+);
+app.use(morgan("dev"));
+app.use(
+  "/info",
   trpcExpress.createExpressMiddleware({
     router: appRouter,
     createContext,

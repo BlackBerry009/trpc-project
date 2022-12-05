@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-// import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { getFetch, httpBatchLink, loggerLink } from "@trpc/client";
 import { trpc } from "./trpc";
 
@@ -26,7 +26,7 @@ function App() {
       links: [
         loggerLink(),
         httpBatchLink({
-          url: "http://localhost:8000/api/trpc",
+          url: "http://localhost:12306/info",
           fetch: async (input, init?) => {
             const fetch = getFetch();
             return fetch(input, {
@@ -42,10 +42,11 @@ function App() {
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
         <AppContent />
-        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </trpc.Provider>
   );
 }
+
 
 export default App;
