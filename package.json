@@ -3,18 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "start": "concurrently \"wsrun --parallel start\""
+    "start": "turbo run start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^7.6.0",
-    "wsrun": "^5.2.4",
-    "@tanstack/react-query-devtools": "^4.19.1"
+    "turbo": "^1.8.6"
   }
 }

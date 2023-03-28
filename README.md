@@ -1,6 +1,6 @@
 # 介绍
 
-trpc full stack project demo
+trpc and turborepo demo.
 
 frontend: react、ts、tailwindcss
 
@@ -8,7 +8,7 @@ backend: express、ts
 
 ## 使用
 ```sh
-yarn run start
+pnpm run start
 ```
 ## 一些坑
 ```js
